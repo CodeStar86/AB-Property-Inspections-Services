@@ -1,0 +1,283 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #F8FAF9;
+  --foreground: #1B1D1F;
+  --card: #ffffff;
+  --card-foreground: #1B1D1F;
+  --popover: #ffffff;
+  --popover-foreground: #1B1D1F;
+  --primary: #2EC4B6;
+  --primary-foreground: #ffffff;
+  --secondary: #A2E4E0;
+  --secondary-foreground: #1B1D1F;
+  --muted: #E6ECEA;
+  --muted-foreground: #6B7280;
+  --accent: #2EC4B6;
+  --accent-foreground: #ffffff;
+  --destructive: #EF4444;
+  --destructive-foreground: #ffffff;
+  --border: #E6ECEA;
+  --input: transparent;
+  --input-background: #ffffff;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #2EC4B6;
+  --chart-1: #2EC4B6;
+  --chart-2: #A2E4E0;
+  --chart-3: #6EE7B7;
+  --chart-4: #34D399;
+  --chart-5: #10B981;
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1B1D1F;
+  --sidebar-primary: #2EC4B6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #A2E4E0;
+  --sidebar-accent-foreground: #1B1D1F;
+  --sidebar-border: #E6ECEA;
+  --sidebar-ring: #2EC4B6;
+}
+
+.dark {
+  --background: #1B1D1F;
+  --foreground: #F8FAF9;
+  --card: #1B1D1F;
+  --card-foreground: #F8FAF9;
+  --popover: #1B1D1F;
+  --popover-foreground: #F8FAF9;
+  --primary: #2EC4B6;
+  --primary-foreground: #ffffff;
+  --secondary: #25A89C;
+  --secondary-foreground: #F8FAF9;
+  --muted: #374151;
+  --muted-foreground: #9CA3AF;
+  --accent: #2EC4B6;
+  --accent-foreground: #ffffff;
+  --destructive: #DC2626;
+  --destructive-foreground: #F8FAF9;
+  --border: #374151;
+  --input: #374151;
+  --ring: #2EC4B6;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #2EC4B6;
+  --chart-2: #A2E4E0;
+  --chart-3: #6EE7B7;
+  --chart-4: #34D399;
+  --chart-5: #10B981;
+  --sidebar: #1B1D1F;
+  --sidebar-foreground: #F8FAF9;
+  --sidebar-primary: #2EC4B6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #374151;
+  --sidebar-accent-foreground: #F8FAF9;
+  --sidebar-border: #374151;
+  --sidebar-ring: #2EC4B6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Gradient utilities for sea-green theme */
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #2EC4B6, #A2E4E0);
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Touch-friendly improvements for mobile devices */
+@layer base {
+  /* Remove tap highlight on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Smooth scrolling for better mobile experience */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Better touch scrolling */
+  body {
+    overscroll-behavior-y: none;
+  }
+  
+  /* Improve input zoom behavior on iOS */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Ensure buttons and interactive elements are touchable */
+  button,
+  a,
+  [role="button"] {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Better touch handling for checkboxes and radios */
+  input[type="checkbox"],
+  input[type="radio"],
+  [role="checkbox"],
+  [role="radio"] {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+}
+
+/* Active states for touch feedback */
+@layer utilities {
+  .touch-active:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+  
+  .touch-card:active {
+    transform: scale(0.99);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-page-break {
+    page-break-after: always;
+  }
+}
